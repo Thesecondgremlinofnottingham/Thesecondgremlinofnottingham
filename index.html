@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Announcements and Messages</title>
+  </head>
+  <body>
+    <h1>Announcements and Messages</h1>
+    <ul id="messages"></ul>
+    <form id="message-form">
+      <input type="text" id="message-input" placeholder="Enter your message here...">
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      const messageForm = document.getElementById('message-form');
+      const messageInput = document.getElementById('message-input');
+      const messagesList = document.getElementById('messages');
+
+      messageForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const messageText = messageInput.value.trim();
+        if (messageText) {
+          const messageElement = document.createElement('li');
+          messageElement.textContent = messageText;
+          messagesList.appendChild(messageElement);
+          messageInput.value = '';
+        }
+      });
+    </script>
+  </body>
+</html>
